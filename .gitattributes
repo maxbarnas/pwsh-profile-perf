@@ -1,0 +1,13 @@
+# Normalise line endings on commit so a checkout on any platform yields the same
+# bytes. The build and the byte-exact uninstall test both depend on payload files
+# being LF, and installed profiles are written with the line endings they were
+# found with. Without this, a Windows clone with core.autocrlf=true rewrites these
+# files to CRLF and produces noisy diffs.
+* text=auto eol=lf
+
+# Windows batch files must keep CRLF to execute correctly.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Test fixture is a captured profile, matched byte-for-byte by the round-trip test.
+tests/fixtures/*.ps1 text eol=lf

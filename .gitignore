@@ -1,0 +1,6 @@
+# Temp files produced by Build.ps1 / Run-Tests.ps1
+*.tmp
+*.log
+
+# Test sandboxes (normally cleaned up, but keep them out of git if not)
+sandbox/
